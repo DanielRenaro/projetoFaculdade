@@ -1,0 +1,138 @@
+Faz o Download do Git For PC
+
+Instala normal  --> next --> next --> next --> finish
+
+$ git config --global user.name "DanielRenaro"
+$ git config --global user.email danielrenaro@gmail.com
+
+Criar um diretório local para salvar os arquivos.
+
+Para iniciar o diretório no Git digite 
+
+$ git init
+
+foi criada a "master".
+
+Rastreando o Arquivo
+
+$ git status
+
+senão tiver nada, adicionar os arquivos.
+
+$ git add nomeArquivo 
+
+a cada mudança no arquivo ele tera queser adicionado novamente
+
+para adicionar varios arquivos usa-se o 
+
+$ git add .	(o ponto significa que é pra usar todos os arquivos)
+
+novamente
+$ git status
+
+para gravar as mudanças usa-se o commit
+
+$ git commit -m "Nome do commit"
+$ git commit -a -m "Inserindo titulo e diminuindo tamanho da pagina" --> Só funciona com arquivos ja rastreados
+$ git commit -am "Inserindo titulo..."	--> Só funciona com arquivos ja rastreados
+
+depois usa-se o comando para verificar os commit's
+
+$ git log
+$ git log -n 2 --> para o numeroque deseja ver
+$ git log --oneline --> resumo bem conciso
+$ git log --pretty=oneline --> uma linha apenas
+$ git log --stat --> resumo dos arquivos alterados, com o número de linhas adicionadas e removidas
+
+$ git remote add origin http://github.com/DanielRenaro/estudo.git
+
+$ git push origin master
+
+Se você ja tiver configurado em outra maquina vai aparecer isso
+/*
+
+Daniel@DESKTOP-I9E07NC MINGW64 ~/Documents/myGit (master)
+$ git push origin master
+To https://github.com/DanielRenaro/estudo.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/DanielRenaro/estudo.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Daniel@DESKTOP-I9E07NC MINGW64 ~/Documents/myGit (master)
+$ git remote add origin httpx://github.com/DanielRenaro/estudo.git
+fatal: remote origin already exists.
+
+*/
+
+Dai vc usa os seguintes comandos:
+
+$ git remote add origin http://github.com/DanielRenaro/estudo.git
+
+$ git push -u origin master
+
+para ignorar arquivos voce deve cirar um arquivo txt .gitignore 
+e não deve esquecer de adicionar na stage
+
+$ git add .gitignore
+
+para sair usa Crt + C 
+
+alterei o titulo da pagina
+
+para ver um realatório detalhado digite
+
+$ gitk
+
+dai o git bash vai abrir a interface grafica e mostrar o relatorio
+****************************************
+tags
+
+para listar as tags existentes
+
+$ git tag
+
+para criar uma tag
+
+$ git tag -a v1.0 -m "Versão 1.0"     "-a" significa tag anotada
+
+****************************************
+	trabalhando com branch's
+
+criando uma nova branch
+
+	$ git branch nomeDaBranch 	ja cria e muda pra branch
+						$ git checkout -b nomeDaBranch 
+para passar a usar a nova branch
+
+	$ git checkout nomeDaBranch
+
+depois da troca ja pode fazer as mudanças e os add's e commit's
+
+dai da um chekout
+
+$ git checkout master     volta pra master  
+
+Então usa-se o checkout para alternar entre as branch's
+
+$ git checkout nomeDaBranch 
+
+Após a conclusão dos trabalhos na branch filha voce usa o merge
+
+primeiro volta pra master
+
+$ git checkout master
+
+depois merge com o nome da branch que voce quer trazer as alterações
+
+$ git merge nomeDaBranch 
+
+para deletar uma branch usa-se o
+
+$ git branch -d nomeDaBranch 
+
+para listar e ver todas as branch's usa-se o 
+
+$ git branch
